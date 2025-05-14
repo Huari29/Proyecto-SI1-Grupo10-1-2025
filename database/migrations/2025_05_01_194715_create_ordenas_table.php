@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ordenas', function (Blueprint $table) {
-            $table->unsignedBigInteger('nroOrdens');     // FK a ordens
-            $table->unsignedBigInteger('codigoProductos');  // FK a productos
+            $table->unsignedBigInteger('nroOrden');     // FK a ordens
+            $table->unsignedBigInteger('codigoProducto');  // FK a productos
             $table->integer('cantidad')->unsigned();
             $table->decimal('precio', 10, 2)->unsigned();
 
             // Clave primaria compuesta
-            $table->primary(['nroOrdens', 'codigoProductos']);
+            $table->primary(['nroOrden', 'codigoProducto']);
 
             // Claves foráneas
-            $table->foreign('nroOrdens')->references('nro')->on('ordens')->onDelete('cascade');
-            $table->foreign('codigoProductos')->references('codigo')->on('productos')->onDelete('cascade');
+            $table->foreign('nroOrden')->references('nro')->on('ordens')->onDelete('cascade');
+            $table->foreign('codigoProducto')->references('codigo')->on('productos')->onDelete('cascade');
 
             $table->timestamps();
         });

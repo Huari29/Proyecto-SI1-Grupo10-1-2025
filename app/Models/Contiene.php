@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Contiene extends Model
 {
     use HasFactory,SoftDeletes;
+    protected $primaryKey = ['codigoProducto','codigoIngrediente'];
     public $incrementing = false;
-    protected $primaryKey = null; // Laravel ignora esto cuando usamos clave compuesta
-    protected $fillable = ['codigoProducto', 'codigoIngrediente', 'cantidad', 'unidad']; // Define los campos que pueden ser asignados masivamente.
+    protected $fillable = ['codigoProducto','codigoIngrediente','cantidad', 'unidad']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con producto
     public function producto()

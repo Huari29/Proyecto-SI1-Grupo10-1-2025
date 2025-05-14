@@ -8,10 +8,11 @@ class Ordena extends Model
 {
     use HasFactory,SoftDeletes;
 
-    // Desactivamos el autoincremento y clave primaria única
-    public $incrementing = false;
-    protected $primaryKey = null; // Laravel ignora esto cuando usamos clave compuesta
+    protected $primaryKey = ['nroOrden', 'codigoProducto'];
 
+    // Desactivamos el autoincremento y clave primaria única
+    public $incrementing = false; // Porque la PK es compuesta
+    
     protected $table = 'ordenas';
 
     protected $fillable = [
