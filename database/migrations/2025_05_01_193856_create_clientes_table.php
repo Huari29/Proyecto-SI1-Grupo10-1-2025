@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->unsignedBigInteger('id'); // Usamos el mismo campo 'id' de persona como clave primaria
-            
+            $table->string("codigo",20);
             // Establecer la clave primaria (id) y la clave foránea a personas
             $table->primary('id'); // Usamos la misma clave primaria
             $table->foreign('id')->references('id')->on('personas')->onDelete('cascade');

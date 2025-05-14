@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contienes', function (Blueprint $table) {
-            $table->unsignedBigInteger('codigoProductos');     // FK a ordens
-            $table->unsignedBigInteger('codigoIngredientes');  // FK a productos
+            $table->unsignedBigInteger('codigoProducto');     // FK a ordens
+            $table->unsignedBigInteger('codigoIngrediente');  // FK a productos
             $table->unsignedInteger("cantidad");
             $table->string("unidad", 10);
 
             // Clave primaria compuesta
-            $table->primary(['codigoProductos', 'codigoIngredientes']);
+            $table->primary(['codigoProducto', 'codigoIngrediente']);
 
             // Claves foráneas
-            $table->foreign('codigoProductos')->references('codigo')->on('productos')->onDelete('cascade');
-            $table->foreign('codigoIngredientes')->references('codigo')->on('ingredientes')->onDelete('cascade');
+            $table->foreign('codigoProducto')->references('codigo')->on('productos')->onDelete('cascade');
+            $table->foreign('codigoIngrediente')->references('codigo')->on('ingredientes')->onDelete('cascade');
 
             $table->timestamps();
         });
