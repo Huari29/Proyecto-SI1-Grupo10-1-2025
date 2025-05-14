@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Email extends Model
 {
     use HasFactory,SoftDeletes;
-
+    
     protected $fillable = ['email', 'idPersona']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con persona

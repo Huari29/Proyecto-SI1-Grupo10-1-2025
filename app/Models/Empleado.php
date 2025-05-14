@@ -10,7 +10,9 @@ class Empleado extends Model
 
     // No es necesario declarar '$table' ya que Laravel lo infiere automáticamente
     // de la convención de plural del modelo, es decir, 'empleados'.
-
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'unsignedBigInteger'; // o 'string' si es texto
     protected $fillable = ['id', 'direccion']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con persona

@@ -11,7 +11,7 @@ class Persona extends Model
     
     // Laravel por defecto usa 'personas' como nombre de la tabla (plural de 'Persona')
     // protected $table = 'personas'; // No es necesario ya que Laravel usa 'personas'.
-
+    
     protected $fillable = ['carnet', 'nombre']; // Define los campos que pueden ser asignados masivamente.
 
     // Relaciones

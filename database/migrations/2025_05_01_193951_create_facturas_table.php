@@ -16,7 +16,7 @@ return new class extends Migration
             $table->decimal("monto",10,2)->unsigned();
             $table->dateTime("fechaHora");
 
-            $table->unsignedBigInteger('idNotaVenta');
+            $table->unsignedBigInteger('idNotaVenta')->nullable();
             $table->foreign('idNotaVenta')->references('id')->on('nota_ventas')->onDelete('cascade');
 
             $table->timestamps();

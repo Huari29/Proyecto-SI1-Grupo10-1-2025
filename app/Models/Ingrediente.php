@@ -8,12 +8,13 @@ class Ingrediente extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $fillable = ['codigo']; // Define los campos que pueden ser asignados masivamente.
-
+    protected $primaryKey = 'codigo'; // Define los campos que pueden ser asignados masivamente.
+    public $incrementing = false;
+    protected $keyType = 'unsignedBigInteger'; // o 'string' si es texto
     // Relación con item
     public function item()
     {
-        return $this->belongsTo(Item::class, 'codigo'); // Un ingrediente pertenece a un item.
+        return $this->belongsTo(Item::class, 'codigo','codigo'); // Un ingrediente pertenece a un item.
     }
 
     // Relación con productos

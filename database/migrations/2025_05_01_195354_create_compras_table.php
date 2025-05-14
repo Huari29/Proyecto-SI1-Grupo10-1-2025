@@ -20,6 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger("IdNotaCompra");
             $table->foreign("IdNotaCompra")->references("id")->on("nota_compras")->onDelete("cascade");
 
+            $table->unsignedBigInteger("codigoItem");
+            $table->foreign("codigoItem")->references("codigo")->on("items")->onDelete("cascade");
+
             $table->timestamps();
         });
     }

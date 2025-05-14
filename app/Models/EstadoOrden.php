@@ -9,4 +9,9 @@ class EstadoOrden extends Model
     use HasFactory,SoftDeletes;
     
     protected $fillable = ['estado']; // Define los campos que pueden ser asignados masivamente.
+
+    public function ordens()
+    {
+        return $this->hasMany(Orden::class, 'idEstadoOrden');
+    }
 }

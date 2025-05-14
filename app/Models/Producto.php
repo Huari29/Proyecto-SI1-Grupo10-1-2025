@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Producto extends Model
 {
     use HasFactory,SoftDeletes;
+    protected $primaryKey = 'codigo'; // Define los campos que pueden ser asignados masivamente.
+    public $incrementing = false;
+    protected $keyType = 'unsignedBigInteger'; // o 'string' si es texto
 
     protected $fillable = ['codigo', 'precio', 'codigoTipo', 'idSabor']; // Define los campos que pueden ser asignados masivamente.
 
@@ -49,7 +52,7 @@ class Producto extends Model
 
      public function ingredientes()
     {
-        return $this->hasMany(Ingrediente::class, 'contienes',"codigoProductos","codigoIngredientes"); // Un producto puede estar en muchas ordenes.
+        return $this->belongsToMany(Ingrediente::class, 'contienes',"codigoProductos","codigoIngredientes"); // Un producto puede estar en muchas ordenes.
     }
 
 }

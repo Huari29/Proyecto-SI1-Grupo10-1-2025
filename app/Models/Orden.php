@@ -32,4 +32,9 @@ class Orden extends Model
     {
         return $this->belongsToMany(Producto::class,"ordenas","nroOrdens","codigoProductos");
     }
+
+    public function notaVenta()
+    {
+        return $this->belongsTo(NotaVenta::class, 'idNotaVenta'); // Una compra pertenece a una nota de compra.
+    }
 }

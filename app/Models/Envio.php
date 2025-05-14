@@ -13,6 +13,6 @@ class Envio extends Model
     // Relación con nota_ventas
     public function notaVentas()
     {
-        return $this->hasMany(NotaVenta::class, 'idEnvios');
+        return $this->hasOne(NotaVenta::class, 'idEnvios');
     }
 }
