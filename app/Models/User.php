@@ -25,12 +25,12 @@ class User extends Authenticatable
         'idRol'
     ];
      // Relación con empleado
-    public function empleado()
+    public function empleado():BelongsTo
     {
         return $this->belongsTo(Empleado::class, 'idEmpleado');
     }
 
-    public function rol()
+    public function rol():BelongsTo
     {
         return $this->belongsTo(Rol::class, 'idRol');
     }
