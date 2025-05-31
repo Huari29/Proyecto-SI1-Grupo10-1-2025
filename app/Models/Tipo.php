@@ -24,7 +24,7 @@ class Tipo extends Model
     ];
 
     // Relación: Un tipo puede tener muchos productos
-    public function productos()
+    public function productos():HasMany
     {
         return $this->hasMany(Producto::class, 'codigoTipo');
     }

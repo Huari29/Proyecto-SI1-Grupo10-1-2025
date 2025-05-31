@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'idEmpleado',
+        'idRol'
     ];
      // Relación con empleado
     public function empleado()
@@ -28,6 +30,10 @@ class User extends Authenticatable
         return $this->belongsTo(Empleado::class, 'idEmpleado');
     }
 
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'idRol');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

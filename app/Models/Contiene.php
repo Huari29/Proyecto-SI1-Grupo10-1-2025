@@ -12,13 +12,13 @@ class Contiene extends Model
     protected $fillable = ['codigoProducto','codigoIngrediente','cantidad', 'unidad']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con producto
-    public function producto()
+    public function producto():BelongsTo
     {
         return $this->belongsTo(Producto::class, 'codigoProducto'); // Una contiene pertenece a un producto.
     }
 
     // Relación con ingrediente
-    public function ingrediente()
+    public function ingrediente():BelongsTo
     {
         return $this->belongsTo(Ingrediente::class, 'codigoIngrediente'); // Una contiene pertenece a un ingrediente.
     }

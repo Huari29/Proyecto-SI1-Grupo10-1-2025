@@ -11,7 +11,7 @@ class Factura extends Model
     protected $fillable = ['monto', 'fechaHora', 'idNotaVenta']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con nota_venta
-    public function notaVenta()
+    public function notaVenta():BelongsTo
     {
         return $this->belongsTo(NotaVenta::class, 'idNotaVenta');
     }

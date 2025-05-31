@@ -10,7 +10,7 @@ class EstadoOrden extends Model
     
     protected $fillable = ['estado']; // Define los campos que pueden ser asignados masivamente.
 
-    public function ordens()
+    public function ordens():HasMany
     {
         return $this->hasMany(Orden::class, 'idEstadoOrden');
     }

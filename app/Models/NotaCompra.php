@@ -12,13 +12,13 @@ class NotaCompra extends Model
 
     protected $fillable = ['fechaHora', 'total', 'codigoProveedor']; // Define los campos que pueden ser asignados masivamente.
     
-    public function compras()
+    public function compras():HasMany
     {
         return $this->hasMany(Compra::class, 'IdNotaCompra');
     }
 
     // Relación con proveedor
-    public function proveedor()
+    public function proveedor():BelongsTo
     {
         return $this->belongsTo(Proveedor::class, 'codigoProveedor'); // Una nota de compra pertenece a un proveedor.
     }

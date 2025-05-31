@@ -11,4 +11,9 @@ class Proveedor extends Model
     use HasFactory,SoftDeletes;
     protected $primaryKey = 'codigo';
     protected $fillable = ['descripcion', 'telefono', 'ubicacion']; // Define los campos que pueden ser asignados masivamente.
+
+    public function notaCompras():HasMany
+    {
+        return $this->hasMany(NotaCompra::class, 'codigoProveedor');
+    }
 }

@@ -14,5 +14,10 @@ class Rol extends Model
 
     protected $fillable = ['descripcion']; // Define los campos que pueden ser asignados masivamente.
 
+    public function users():HasMany
+    {
+        return $this->hasMany(User::class, 'idRol'); // Un producto tiene un sabor.
+    }
+
     // Esta tabla no tiene claves foráneas, solo tiene 'id' que es clave primaria por defecto.
 }

@@ -15,28 +15,28 @@ class Producto extends Model
     protected $fillable = ['codigo', 'precio', 'codigoTipo', 'idSabor']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con item
-    public function item()
+    public function item():BelongsTo
     {
         return $this->belongsTo(Item::class, 'codigo'); // Un producto pertenece a un item.
     }
 
     // Relación con tipo
-    public function tipo()
+    public function tipo():BelongsTo
     {
         return $this->belongsTo(Tipo::class, 'codigoTipo'); // Un producto pertenece a un tipo.
     }
 
     // Relación con sabor
-    public function sabor()
+    public function sabor():BelongsTo
     {
         return $this->belongsTo(Sabor::class, 'idSabor'); // Un producto tiene un sabor.
     }
     //relacion de muchos a muchos
-    public function ordens()
+    public function ordens():BelongsToMany
     {
         /*
         1ro clase del modelo relacionado
-        2da nombre de la tabla pivote intermedia
+        2da nombre de la clase interintermedia
         3ra fk de esta clase que se encuentra en la clase intermedia
         4ta fk del otro modelo relacionado
         */
@@ -45,12 +45,12 @@ class Producto extends Model
     }
 
     // Relación con menus
-    public function menus()
+    public function menus():HasMany
     {
         return $this->hasMany(Menu::class, 'codigoProducto'); // Un producto puede estar en muchos menús.
     }
 
-     public function ingredientes()
+     public function ingredientes():BelongsToMany
     {
         return $this->belongsToMany(Ingrediente::class, 'contienes',"codigoProductos","codigoIngredientes"); // Un producto puede estar en muchas ordenes.
     }

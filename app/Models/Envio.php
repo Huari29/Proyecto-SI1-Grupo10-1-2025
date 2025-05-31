@@ -11,7 +11,7 @@ class Envio extends Model
      protected $fillable = ['descripcion']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con nota_ventas
-    public function notaVentas()
+    public function notaVentas():HasOne
     {
         return $this->hasOne(NotaVenta::class, 'idEnvios');
     }

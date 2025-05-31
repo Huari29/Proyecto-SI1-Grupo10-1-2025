@@ -11,7 +11,7 @@ class Sabor extends Model
     protected $fillable = ['descripcion']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con productos
-    public function productos()
+    public function productos():HasMany
     {
         return $this->hasMany(Producto::class, 'idSabor'); // Un sabor puede estar en muchos productos.
     }

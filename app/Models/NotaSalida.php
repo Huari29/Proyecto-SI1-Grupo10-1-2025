@@ -11,7 +11,7 @@ class NotaSalida extends Model
     protected $fillable = ['cantidad', 'fechaHora', 'codigoItem']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con item
-    public function item()
+    public function item():BelongsTo
     {
         return $this->belongsTo(Item::class, 'codigoItem',"codigo"); // Una nota de salida pertenece a un item.
     }

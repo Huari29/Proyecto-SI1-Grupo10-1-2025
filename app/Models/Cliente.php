@@ -15,13 +15,13 @@ class Cliente extends Model
     protected $fillable = ['codigo']; // Solo la clave primaria, ya que la relación es con 'personas'.
 
     // Relación con persona
-    public function persona()
+    public function persona():BelongsTo
     {
         return $this->belongsTo(Persona::class, 'id','id');
     }
 
     // Relación con órdenes
-    public function ordens()
+    public function ordens():HasMany
     {
         return $this->hasMany(Orden::class, 'idCliente','id');
     }

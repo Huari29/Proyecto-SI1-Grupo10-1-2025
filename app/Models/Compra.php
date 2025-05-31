@@ -16,7 +16,7 @@ class Compra extends Model
     protected $fillable = ['costo', 'cantidad','IdNotaCompra']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con nota_compra
-    public function notaCompra()
+    public function notaCompra():BelongsTo
     {
         return $this->belongsTo(NotaCompra::class, 'IdNotaCompra'); // Una compra pertenece a una nota de compra.
     }

@@ -11,7 +11,7 @@ class Telefono extends Model
     protected $fillable = ['nroTelefono', 'idPersona']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con persona
-    public function persona()
+    public function persona():BelongsTo
     {
         return $this->belongsTo(Persona::class, 'idPersona'); // Un teléfono pertenece a una persona.
     }

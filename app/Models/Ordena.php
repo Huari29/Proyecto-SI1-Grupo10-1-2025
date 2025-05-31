@@ -23,12 +23,12 @@ class Ordena extends Model
     ];
 
     // Relaciones
-    public function orden()
+    public function orden():BelongsTo
     {
         return $this->belongsTo(Orden::class, 'nroOrdens', 'nro');
     }
 
-    public function producto()
+    public function producto():BelongsTo
     {
         return $this->belongsTo(Producto::class, 'codigoProductos', 'codigo');
     }

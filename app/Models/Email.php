@@ -11,7 +11,7 @@ class Email extends Model
     protected $fillable = ['email', 'idPersona']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con persona
-    public function persona()
+    public function persona():BelongsTo
     {
         return $this->belongsTo(Persona::class, 'idPersona'); // Un email pertenece a una persona.
     }

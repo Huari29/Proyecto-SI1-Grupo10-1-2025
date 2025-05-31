@@ -12,13 +12,13 @@ class Ingrediente extends Model
     public $incrementing = false;
     protected $keyType = 'unsignedBigInteger'; // o 'string' si es texto
     // Relación con item
-    public function item()
+    public function item():BelongsTo
     {
         return $this->belongsTo(Item::class, 'codigo','codigo'); // Un ingrediente pertenece a un item.
     }
 
     // Relación con productos
-    public function productos()
+    public function productos():BelongsToMany
     {
         return $this->belongsToMany(Producto::class, 'contienes', 'codigoIngredientes', 'codigoProductos'); // Un ingrediente puede estar en muchos productos.
     }

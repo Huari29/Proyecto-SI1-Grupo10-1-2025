@@ -12,7 +12,7 @@ class Mesa extends Model
     protected $fillable = ['nro', 'capacidad']; // Define los campos que pueden ser asignados masivamente.
 
     // Relación con nota_ventas
-    public function notaVentas()
+    public function notaVentas():HasMany
     {
         return $this->hasMany(NotaVenta::class, 'nroMesa');
     }

@@ -15,22 +15,22 @@ class Persona extends Model
     protected $fillable = ['carnet', 'nombre']; // Define los campos que pueden ser asignados masivamente.
 
     // Relaciones
-    public function empleados()
+    public function empleados():HasOne
     {
         return $this->hasOne(Empleado::class, 'id');
     }
 
-    public function clientes()
+    public function clientes():HasOne
     {
         return $this->hasOne(Cliente::class, 'id');
     }
 
-    public function telefonos()
+    public function telefonos():HasMany
     {
         return $this->hasMany(Telefono::class, 'idPersona');
     }
 
-    public function emails()
+    public function emails():HasMany
     {
         return $this->hasMany(Email::class, 'idPersona');
     }
